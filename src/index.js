@@ -1,7 +1,7 @@
 var OAuth = require('oauth');
 
-import Customers from './Customers';
-import Documents from './Documents';
+import Client from './Client';
+import Document from './Document';
 
 const DEFAULT_ENDPOINT = 'https://apifeed.sellsy.com/0'
 
@@ -15,8 +15,8 @@ const api = {
 function Sellsy({ creds = {}, endPoint = DEFAULT_ENDPOINT  } = {}) {
   this.creds = creds;
   this.endPoint = endPoint;
-  this.customers = new Customers(this);
-  this.documents = new Documents(this);
+  this.Client = new Client(this);
+  this.Document = new Document(this);
 }
 
 Sellsy.prototype.api = function({ method = 'Infos.getInfos', params = {}} = {}) {

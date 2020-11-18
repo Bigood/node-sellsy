@@ -1,5 +1,5 @@
 
-import ERRORS from './ERRORS';
+import ERRORS from 'node-sellsy/src/ERRORS';
 
 const DEFAULT_GET_LIST_PAGINATION = {
   nbperpage: 100,
@@ -11,7 +11,7 @@ const DEFAULT_GET_LIST_ORDER = {
   order: 'doc_displayedDate'
 }
 
-export default class Documents {
+export default class Document {
   constructor(sellsy) {
     this.sellsy = sellsy;
   }

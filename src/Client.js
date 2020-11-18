@@ -1,12 +1,12 @@
 
-import ERRORS from './ERRORS';
+import ERRORS from 'node-sellsy/src/ERRORS';
 
-export default class Customers {
+export default class Client {
   constructor(sellsy) {
-    this.udpate = this.create;
+    this.udpate = this.upsert;
     this.sellsy = sellsy;
   }
-  create = data => {
+  upsert = data => {
     let method = data.clientid ? 'update':'create';
     return this.sellsy.api({
       method: `Client.${method}`,
@@ -24,7 +24,11 @@ export default class Customers {
      throw new Error(ERRORS.CUSTOMER_CREATE_ERROR);
     });
   }
-  get = search => {
+  /**
+   * Search a client, with an identifier
+   * @param {"ident" : "****"} search 
+   */
+  getFirstMatchWithGetList = search => {
     return this.sellsy.api({
       method: 'Client.getList',
       params: {
