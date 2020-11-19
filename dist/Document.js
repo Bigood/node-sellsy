@@ -26,14 +26,14 @@ var DEFAULT_GET_LIST_ORDER = {
   order: 'doc_displayedDate'
 };
 
-var Documents = function () {
-  function Documents(sellsy) {
-    _classCallCheck(this, Documents);
+var Document = function () {
+  function Document(sellsy) {
+    _classCallCheck(this, Document);
 
     this.sellsy = sellsy;
   }
 
-  _createClass(Documents, [{
+  _createClass(Document, [{
     key: 'create',
     value: function create(data) {
       var _this = this;
@@ -130,7 +130,7 @@ var Documents = function () {
     }
   }]);
 
-  return Documents;
+  return Document;
 }();
 
-exports.default = Documents;
+exports.default = Document;

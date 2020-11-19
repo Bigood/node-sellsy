@@ -4,17 +4,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Customers = require('./Customers');
+var _oauth = require('oauth');
 
-var _Customers2 = _interopRequireDefault(_Customers);
+var _oauth2 = _interopRequireDefault(_oauth);
 
-var _Documents = require('./Documents');
+var _Client = require('./Client');
 
-var _Documents2 = _interopRequireDefault(_Documents);
+var _Client2 = _interopRequireDefault(_Client);
+
+var _Document = require('./Document');
+
+var _Document2 = _interopRequireDefault(_Document);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var OAuth = require('oauth');
 
 var DEFAULT_ENDPOINT = 'https://apifeed.sellsy.com/0';
 
@@ -33,8 +35,8 @@ function Sellsy() {
 
   this.creds = creds;
   this.endPoint = endPoint;
-  this.customers = new _Customers2.default(this);
-  this.documents = new _Documents2.default(this);
+  this.Client = new _Client2.default(this);
+  this.Document = new _Document2.default(this);
 }
 
 Sellsy.prototype.api = function () {
@@ -48,7 +50,7 @@ Sellsy.prototype.api = function () {
 
   var getOauth = function getOauth() {
 
-    return new OAuth.OAuth(_this.endPoint + api.requestTokenUrl, _this.endPoint + api.accessTokenUrl, _this.creds.consumerKey, _this.creds.consumerSecret, '1.0', null, 'PLAINTEXT');
+    return new _oauth2.default.OAuth(_this.endPoint + api.requestTokenUrl, _this.endPoint + api.accessTokenUrl, _this.creds.consumerKey, _this.creds.consumerSecret, '1.0', null, 'PLAINTEXT');
   };
 
   return new Promise(function (resolve, reject) {
