@@ -1,5 +1,4 @@
-
-import ERRORS from 'node-sellsy/src/ERRORS';
+import ERRORS from './ERRORS';
 
 export default class Client {
   constructor(sellsy) {

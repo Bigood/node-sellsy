@@ -1,5 +1,5 @@
 
-import ERRORS from 'node-sellsy/src/ERRORS';
+import ERRORS from './ERRORS';
 
 const DEFAULT_GET_LIST_PAGINATION = {
   nbperpage: 100,

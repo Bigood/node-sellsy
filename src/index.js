@@ -1,4 +1,4 @@
-var OAuth = require('oauth');
+import OAuth from 'oauth';
 
 import Client from './Client';
 import Document from './Document';
