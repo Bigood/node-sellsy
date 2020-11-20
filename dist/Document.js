@@ -36,19 +36,18 @@ var Document = function () {
   _createClass(Document, [{
     key: 'create',
     value: function create(data) {
-      var _this = this;
-
       var method = data.docid ? 'update' : 'create';
       return this.sellsy.api({
         method: 'Document.' + method,
         params: data
       }).then(function (result) {
         if (result.status === 'success') {
-          return _this.getById(data.document.doctype, result.response.doc_id);
+          return result;
         }
+        console.error(result);
         throw new Error(_ERRORS2.default.DOCUMENT_CREATE_ERROR);
       }).catch(function (e) {
-        console.log(e);
+        console.error(e);
         throw new Error(e);
       });
     }
@@ -67,7 +66,7 @@ var Document = function () {
       }).then(function (data) {
         return data.response;
       }).catch(function (e) {
-        console.log(e);
+        console.error(e);
         throw new Error(_ERRORS2.default.DOCUMENT_UPDATESTEP_ERROR);
       });
     }
@@ -85,7 +84,7 @@ var Document = function () {
       }).then(function (data) {
         return data.response;
       }).catch(function (e) {
-        console.log(e);
+        console.error(e);
         throw new Error(_ERRORS2.default.DOCUMENT_CREATEPAYMENT_ERROR);
       });
     }
@@ -101,7 +100,7 @@ var Document = function () {
       }).then(function (data) {
         return data.response;
       }).catch(function (e) {
-        console.log(e);
+        console.error(e);
         throw new Error(_ERRORS2.default.DOCUMENT_NOT_FOUND);
       });
     }
@@ -124,7 +123,7 @@ var Document = function () {
       }).then(function (data) {
         return data.response;
       }).catch(function (e) {
-        console.log(e);
+        console.error(e);
         throw new Error(_ERRORS2.default.DOCUMENT_NOT_FOUND);
       });
     }

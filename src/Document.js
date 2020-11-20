@@ -22,11 +22,12 @@ export default class Document {
       params: data
     }).then(result => {
       if (result.status === 'success') {
-       return this.getById(data.document.doctype, result.response.doc_id);
+       return result;
       }
+      console.error(result)
       throw new Error(ERRORS.DOCUMENT_CREATE_ERROR);
    }).catch(e => {
-      console.log(e)
+      console.error(e)
       throw new Error(e);
    })
   }
@@ -43,7 +44,7 @@ export default class Document {
     }).then(data => {
       return data.response
     }).catch(e => {
-      console.log(e)
+      console.error(e)
       throw new Error(ERRORS.DOCUMENT_UPDATESTEP_ERROR);
     });
   }
@@ -60,7 +61,7 @@ export default class Document {
     }).then(data => {
       return data.response
     }).catch(e => {
-      console.log(e)
+      console.error(e)
       throw new Error(ERRORS.DOCUMENT_CREATEPAYMENT_ERROR);
     });
   }
@@ -74,7 +75,7 @@ export default class Document {
     }).then(data => {
       return data.response
     }).catch(e => {
-      console.log(e)
+      console.error(e)
       throw new Error(ERRORS.DOCUMENT_NOT_FOUND);
     });
   }
@@ -91,7 +92,7 @@ export default class Document {
     }).then(data => {
       return data.response
     }).catch(e => {
-      console.log(e)
+      console.error(e)
       throw new Error(ERRORS.DOCUMENT_NOT_FOUND);
     });
   }
