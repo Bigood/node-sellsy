@@ -16,6 +16,10 @@ var _Document = require('./Document');
 
 var _Document2 = _interopRequireDefault(_Document);
 
+var _Catalogue = require('./Catalogue');
+
+var _Catalogue2 = _interopRequireDefault(_Catalogue);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var DEFAULT_ENDPOINT = 'https://apifeed.sellsy.com/0';
@@ -37,6 +41,7 @@ function Sellsy() {
   this.endPoint = endPoint;
   this.Client = new _Client2.default(this);
   this.Document = new _Document2.default(this);
+  this.Catalogue = new _Catalogue2.default(this);
 }
 
 Sellsy.prototype.api = function () {

@@ -2,6 +2,7 @@ import OAuth from 'oauth';
 
 import Client from './Client';
 import Document from './Document';
+import Catalogue from './Catalogue';
 
 const DEFAULT_ENDPOINT = 'https://apifeed.sellsy.com/0'
 
@@ -17,6 +18,7 @@ function Sellsy({ creds = {}, endPoint = DEFAULT_ENDPOINT  } = {}) {
   this.endPoint = endPoint;
   this.Client = new Client(this);
   this.Document = new Document(this);
+  this.Catalogue = new Catalogue(this);
 }
 
 Sellsy.prototype.api = function({ method = 'Infos.getInfos', params = {}} = {}) {
